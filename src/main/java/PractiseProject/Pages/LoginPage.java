@@ -26,9 +26,9 @@ public class LoginPage {
     }
 
 
-    //Actions    WE need to 1-wait  2- scroll 3-find  4-make action
+    //Actions -->   WE need to 1-wait  2- scroll 3-find  4-make action
     /*So we need to put the repeated functions of finding elements , waits and scrolls
-    in separated package*/
+    in separated package so we invoke the method every time without repeating code*/
 
     // It is recommended to start each page class with navigation method and end it with assertion method
     //navigation method:

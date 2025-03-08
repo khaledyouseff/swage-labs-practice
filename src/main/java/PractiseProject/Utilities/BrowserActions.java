@@ -10,4 +10,10 @@ public class BrowserActions {
     public static String GetCurrentBrowserURL(WebDriver driver){
        return driver.getCurrentUrl();
     }
+    public static String GetPageTitle(WebDriver driver){
+        return driver.getTitle();
+    }
+    public static void  RefreshPage(WebDriver driver){
+         driver.navigate().refresh();
+    }
 }

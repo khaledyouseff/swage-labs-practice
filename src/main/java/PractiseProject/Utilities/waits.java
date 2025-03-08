@@ -23,7 +23,6 @@ public static WebElement WaitForElementPresence(WebDriver driver , By locator){
     return new WebDriverWait(driver, Duration.ofSeconds(10))
             .until(driver1 -> driver1.findElement(locator));
     //.until(WebDriver::findElement); instead of .until(driver1 -> driver1.findElement(locator));
-
 }
 
 

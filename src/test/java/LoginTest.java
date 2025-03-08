@@ -28,7 +28,7 @@ public class LoginTest {
          new(LoginPage).SetUserNameField("standard_user").SetPasswordField("standard_user")
          .ClickLoginButton().AssertSuccessLogin();
          BUT this will not respond because the return type of this methods in LoginPage class is void
-         So we need to adjust the return type from void to LoginPage in the two set methods
+         So we need to adjust the return type from void to LoginPage in the methods
          this is called: Fluent Pattern Approach So Each method in the class return an object from the class or
          other class so we can call them in one line
          */
