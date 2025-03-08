@@ -1,7 +1,9 @@
 package PractiseProject.Pages;
 
 import PractiseProject.Utilities.BrowserActions;
+import PractiseProject.Utilities.CustomSoftAssertion;
 import PractiseProject.Utilities.ElementAction;
+import PractiseProject.Utilities.Validations;
 import com.beust.ah.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,7 +39,7 @@ public class LoginPage {
     }
 
     public LoginPage SetUserNameField(String UserNameText) {
-      ElementAction.SendData(driver, UserName, UserNameText);
+        ElementAction.SendData(driver, UserName, UserNameText);
         return new LoginPage(driver);
         //or return this;
     }
@@ -55,17 +57,34 @@ public class LoginPage {
 
 
     //Validations
+
     //we will  assert that if the new url of homepage is displayed that it is successful , otherwise check error msg
     //Not that we need to change the scope of testng in pom.xml file from test to compile
     public LoginPage AssertSuccessLogin() {
-        Assert.assertEquals(BrowserActions.GetCurrentBrowserURL(driver), "https://www.saucedemo.com/inventory.html");
+        Validations.AssertPageURL((driver), "https://www.saucedemo.com/inventory.html");
         return new LoginPage(driver);
 
     }
 
     public LoginPage AssetFailedLogin() {
-        Assert.assertEquals(ElementAction.GetText(driver, LoginErrorMessage),
-                "Epic sadface: Username and password do not match any user in this service");
+        Validations.AssertEquals(ElementAction.GetText(driver, LoginErrorMessage),
+                "Epic sadface: Username and password do not match any user in this service", "Login Failed");
         return new LoginPage(driver);
     }
+
+    public LoginPage SoftAssertLoginPageURL() {
+        CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.GetCurrentBrowserURL(driver),
+                "https://www.saucedemo.com/inventory.html" , "Title is not as expected");
+        return new LoginPage(driver);
+    }
+    public LoginPage SoftAssertLoginPageTitle() {
+        CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.GetPageTitle(driver),
+                "Swag-Labs" , "Title is not as expected");
+        return new LoginPage(driver);
+    }
+    public LoginPage SoftAssertSuccessfulLoginPage(){
+        SoftAssertLoginPageURL().SoftAssertLoginPageTitle();
+        return new LoginPage(driver);
+    }
+
 }

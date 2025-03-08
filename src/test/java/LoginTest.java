@@ -1,4 +1,5 @@
 import PractiseProject.Pages.LoginPage;
+import PractiseProject.Utilities.CustomSoftAssertion;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -21,6 +22,8 @@ public class LoginTest {
         loginPage.SetPasswordField("secret_sauce");
         loginPage.ClickLoginButton();
         loginPage.AssertSuccessLogin();
+        //in case of soft assertion the following line will be added
+        //loginPage.SoftAssertSuccessfulLoginPage();
         //new(LoginPage).SetUserNameField("standard_user").SetPasswordField("standard_user").ClickLoginButton().AssertSuccessLogin();
 
         /*or use an anonymous object so instead of:  LoginPage loginPage; loginPage = new LoginPage(driver);
@@ -54,11 +57,13 @@ public class LoginTest {
 
 
     }
-/*
+
     @AfterMethod
     public void TearDown() {
         driver.quit();
-    }
-    */
+        //we should add this here to asset all the soft validations if we used it in the test class (video #7)
+        CustomSoftAssertion.customAssertAll();
+          }
+
 
 }
