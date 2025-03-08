@@ -3,16 +3,15 @@ package PractiseProject.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class waits {
+public class Waits {
     // I made the all static to be able to call them directly without instantiating object from the class
     //this private constructor prevents direct instantiating from the class
 
-    private waits(){}
+    private Waits(){}
 
     //present
 
