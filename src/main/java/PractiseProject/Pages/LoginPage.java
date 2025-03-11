@@ -33,10 +33,13 @@ public class LoginPage {
     in separated package so we invoke the method every time without repeating code*/
 
     // It is recommended to start each page class with navigation method and end it with assertion method
+
     //navigation method:
     public void GoToLoginPage() {
         GoToBrowser(driver, "https://www.saucedemo.com");
     }
+
+    //Actions on login elements
 
     public LoginPage SetUserNameField(String UserNameText) {
         ElementAction.SendData(driver, UserName, UserNameText);
@@ -57,22 +60,28 @@ public class LoginPage {
 
 
     //Validations
+    //hard assertions:
 
     //we will  assert that if the new url of homepage is displayed that it is successful , otherwise check error msg
     //Not that we need to change the scope of testng in pom.xml file from test to compile
     public LoginPage AssertSuccessLogin() {
         Validations.AssertPageURL((driver), "https://www.saucedemo.com/inventory.html");
+        Validations.AssertPageTitle(driver,"Swag-Labs");
         return new LoginPage(driver);
 
     }
 
-    public LoginPage AssetFailedLogin() {
+    public LoginPage AssertFailedLogin() {
         Validations.AssertEquals(ElementAction.GetText(driver, LoginErrorMessage),
                 "Epic sadface: Username and password do not match any user in this service", "Login Failed");
         return new LoginPage(driver);
     }
+    //soft assertions:
 
     public LoginPage SoftAssertLoginPageURL() {
+        /*softAssertion object is declared as public static inside CustomSoftAssertion public class,
+         which means it belongs to the class itself, not an instance.
+         Since it is static, you can access it using the class name as follows:*/
         CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.GetCurrentBrowserURL(driver),
                 "https://www.saucedemo.com/inventory.html" , "Title is not as expected");
         return new LoginPage(driver);
@@ -80,10 +89,13 @@ public class LoginPage {
     public LoginPage SoftAssertLoginPageTitle() {
         CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.GetPageTitle(driver),
                 "Swag-Labs" , "Title is not as expected");
+
         return new LoginPage(driver);
     }
     public LoginPage SoftAssertSuccessfulLoginPage(){
         SoftAssertLoginPageURL().SoftAssertLoginPageTitle();
+       /*CustomSoftAssertion.customAssertAll();  // Validate all soft assertions at once but i added it in tearup
+        ()method to assert them before quit the browser*/
         return new LoginPage(driver);
     }
 

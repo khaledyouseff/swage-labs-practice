@@ -1,11 +1,9 @@
 import PractiseProject.Pages.LoginPage;
-import PractiseProject.Utilities.CustomSoftAssertion;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,9 +20,11 @@ public class LoginTest {
         loginPage.SetPasswordField("secret_sauce");
         loginPage.ClickLoginButton();
         loginPage.AssertSuccessLogin();
-        //in case of soft assertion the following line will be added
-        //loginPage.SoftAssertSuccessfulLoginPage();
         //new(LoginPage).SetUserNameField("standard_user").SetPasswordField("standard_user").ClickLoginButton().AssertSuccessLogin();
+
+        /*in case of soft assertion the following line will be added:
+        loginPage.SoftAssertSuccessfulLoginPage();*/
+
 
         /*or use an anonymous object so instead of:  LoginPage loginPage; loginPage = new LoginPage(driver);
          loginPage.GoToLoginPage(); we will write one line as follows :
@@ -45,7 +45,7 @@ public class LoginTest {
         //to max the window
         option.addArguments("Start-Maximized");
         /*to wait until the page is ready as we do not want to use explicit wait
-         as we used it before to avoid concurrency issues*/
+         as we used it before to avoid concurrency issues :*/
         option.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new EdgeDriver(option);
         loginPage = new LoginPage(driver);
@@ -62,7 +62,7 @@ public class LoginTest {
     public void TearDown() {
         driver.quit();
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
-        CustomSoftAssertion.customAssertAll();
+       // CustomSoftAssertion.customAssertAll();
           }
 
 
