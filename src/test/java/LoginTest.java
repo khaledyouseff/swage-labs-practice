@@ -1,3 +1,4 @@
+import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Pages.LoginPage;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -41,19 +42,24 @@ public class LoginTest {
     //configurations
     @BeforeMethod
     public void Setup() {
+        // ic created a class to instantiate the driver so i do not need all this
+        /*
         EdgeOptions option = new EdgeOptions();
         //to max the window
         option.addArguments("Start-Maximized");
         /*to wait until the page is ready as we do not want to use explicit wait
-         as we used it before to avoid concurrency issues :*/
+         as we used it before to avoid concurrency issues :
         option.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new EdgeDriver(option);
         loginPage = new LoginPage(driver);
-        loginPage.GoToLoginPage();
+        loginPage.GoToLoginPage();*/
+
         /*or use an anonymous object so instead of:  LoginPage loginPage; loginPage = new LoginPage(driver);
          loginPage.GoToLoginPage(); we will write one line as follows :
          new(LoginPage).driver.GoToLoginPage();
          */
+        driver = DriverManager.CreateDriver("edge");
+        new LoginPage(driver).GoToLoginPage();
 
 
     }
@@ -62,8 +68,8 @@ public class LoginTest {
     public void TearDown() {
         driver.quit();
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
-       // CustomSoftAssertion.customAssertAll();
-          }
+        // CustomSoftAssertion.customAssertAll();
+    }
 
 
 }

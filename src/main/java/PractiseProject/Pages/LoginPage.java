@@ -66,7 +66,7 @@ public class LoginPage {
     //Not that we need to change the scope of testng in pom.xml file from test to compile
     public LoginPage AssertSuccessLogin() {
         Validations.AssertPageURL((driver), "https://www.saucedemo.com/inventory.html");
-        Validations.AssertPageTitle(driver,"Swag-Labs");
+        Validations.AssertPageTitle(driver,"Swag Labs");
         return new LoginPage(driver);
 
     }
