@@ -20,7 +20,8 @@ public class DriverManager {
         setDriver(driver);
         return getDriver();
     }
-
+    /*This ensures each test thread gets its own WebDriver instance.
+    Prevents conflicts when running multiple tests in parallel:*/
     public static WebDriver getDriver() {
         if (driverThreadLocal.get() == null) {
             fail("driver is null");

@@ -16,38 +16,38 @@ public class BrowserFactory {
         //.toLowerCase() to neglect upper or lower case letters
         switch(BrowserName.toLowerCase()){
             case "chrome" :
-                ChromeOptions ChromeOptions = new ChromeOptions();
-                ChromeOptions.addArguments("--start-maximized");
-                ChromeOptions.addArguments("--disable-notifications");
-                ChromeOptions.addArguments("--disable-extensions");
-                ChromeOptions.addArguments("--disable-infobars");
-                ChromeOptions.addArguments("--remote-allow-origins=*");
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--start-maximized");
+                chromeOptions.addArguments("--disable-notifications");
+                chromeOptions.addArguments("--disable-extensions");
+                chromeOptions.addArguments("--disable-infobars");
+                chromeOptions.addArguments("--remote-allow-origins=*");
                 Map<String , Object> ChromePrefs=Map.of("profile.managed_default_content_settings.notification" , false ,
                         "credentials_enable_service", false ,
                         "profile_password_manager_enabled", false ,
                         "autofill.profile_enabled", false);
-                ChromeOptions.setExperimentalOption("prefs" , ChromePrefs);
+                chromeOptions.setExperimentalOption("prefs" , ChromePrefs);
 
-                return new ChromeDriver(ChromeOptions);
+                return new ChromeDriver(chromeOptions);
             case "firefox" :
-                FirefoxOptions FirefoxOptions = new FirefoxOptions();
-                FirefoxOptions.addArguments("--start-maximized");
-                FirefoxOptions.addArguments("--disable-notifications");
-                FirefoxOptions.addArguments("--disable-extensions");
-                FirefoxOptions.addArguments("--disable-infobars");
-                FirefoxOptions.addArguments("--remote-allow-origins=*");
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--start-maximized");
+                firefoxOptions.addArguments("--disable-notifications");
+                firefoxOptions.addArguments("--disable-extensions");
+                firefoxOptions.addArguments("--disable-infobars");
+                firefoxOptions.addArguments("--remote-allow-origins=*");
                 
-                return new FirefoxDriver(FirefoxOptions);
+                return new FirefoxDriver(firefoxOptions);
 
             default :
-                EdgeOptions EdgeOptions = new EdgeOptions();
-                EdgeOptions.addArguments("--start-maximized");
-                EdgeOptions.addArguments("--disable-notifications");
-                EdgeOptions.addArguments("--disable-extensions");
-                EdgeOptions.addArguments("--disable-infobars");
-                EdgeOptions.addArguments("--remote-allow-origins=*");
+                EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.addArguments("--start-maximized");
+                edgeOptions.addArguments("--disable-notifications");
+                edgeOptions.addArguments("--disable-extensions");
+                edgeOptions.addArguments("--disable-infobars");
+                edgeOptions.addArguments("--remote-allow-origins=*");
 
-                return new EdgeDriver(EdgeOptions);
+                return new EdgeDriver(edgeOptions);
 
         }
     }

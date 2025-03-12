@@ -56,7 +56,8 @@ public class LoginTest {
 
         /*or use an anonymous object so instead of:  LoginPage loginPage; loginPage = new LoginPage(driver);
          loginPage.GoToLoginPage(); we will write one line as follows :
-         new(LoginPage).driver.GoToLoginPage();
+         new LoginPage(driver).GoToLoginPage();
+
          */
         driver = DriverManager.CreateDriver("edge");
         new LoginPage(driver).GoToLoginPage();
