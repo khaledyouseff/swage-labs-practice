@@ -1,7 +1,9 @@
 package PractiseProject.Drivers;
 
+import PractiseProject.Utilities.LogsUtilities;
 import net.bytebuddy.implementation.bind.annotation.Super;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.logging.Logs;
 
 import static org.testng.Assert.fail;
 
@@ -17,6 +19,7 @@ public class DriverManager {
 
     public static WebDriver CreateDriver(String BrowserName) {
         WebDriver driver = BrowserFactory.GetBrowser(BrowserName);
+        LogsUtilities.info("Driver created on:", BrowserName);
         setDriver(driver);
         return getDriver();
     }
@@ -24,11 +27,13 @@ public class DriverManager {
     Prevents conflicts when running multiple tests in parallel:*/
     public static WebDriver getDriver() {
         if (driverThreadLocal.get() == null) {
-            fail("driver is null");
+            LogsUtilities.error("Driver is null");
+            fail("Driver is null");
         }
         return driverThreadLocal.get();
     }
     public static void setDriver(WebDriver driver){
         driverThreadLocal.set(driver);
     }
+
 }

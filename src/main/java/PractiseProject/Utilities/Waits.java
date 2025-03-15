@@ -11,41 +11,46 @@ public class Waits {
     // I made the all static to be able to call them directly without instantiating object from the class
     //this private constructor prevents direct instantiating from the class
 
-    private Waits(){}
+    private Waits() {
+    }
 
     //present
 
-public static WebElement WaitForElementPresence(WebDriver driver , By locator){
+    public static WebElement WaitForElementPresence(WebDriver driver, By locator) {
     /*we will not wait until a certain condition as
     it is not effective,but we will use lambda expression*/
-
-    return new WebDriverWait(driver, Duration.ofSeconds(10))
-            .until(driver1 -> driver1.findElement(locator));
-    //.until(WebDriver::findElement); instead of .until(driver1 -> driver1.findElement(locator));
-}
+        LogsUtilities.info("waiting to the element to present:", locator.toString());
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(driver1 -> driver1.findElement(locator));
+        //.until(WebDriver::findElement); instead of .until(driver1 -> driver1.findElement(locator));
+    }
 
 
     //visible
-    public static WebElement WaitForElementVisibility(WebDriver driver , By locator) {
+    public static WebElement WaitForElementVisibility(WebDriver driver, By locator) {
+        LogsUtilities.info("waiting to the element to be visible:", locator.toString());
+
         return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(driver1 ->
                         {
-                            WebElement element = WaitForElementPresence(driver,locator);
-                            return element.isDisplayed() ? element: null;
+                            WebElement element = WaitForElementPresence(driver, locator);
+                            return element.isDisplayed() ? element : null;
                         }
-                        );
+                );
     }
 
 
     //Clickable
-    public static WebElement WaitForElementToBeClickable(WebDriver driver, By locator){
-    return new WebDriverWait(driver , Duration.ofSeconds(10)).until(driver1->
+    public static WebElement WaitForElementToBeClickable(WebDriver driver, By locator) {
+        LogsUtilities.info("waiting to the element to be clickable:", locator.toString());
 
-            {
-                WebElement element = WaitForElementVisibility(driver,locator);
-                        return element.isEnabled() ? element :null;
-            }
+        return new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver1 ->
 
-            );
+                {
+                    WebElement element = WaitForElementVisibility(driver, locator);
+                    return element.isEnabled() ? element : null;
+                }
+
+        );
     }
 }

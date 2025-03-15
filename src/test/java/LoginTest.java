@@ -1,5 +1,6 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Pages.LoginPage;
+import PractiseProject.Utilities.BrowserActions;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,18 +11,23 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
     //variable
-    private WebDriver driver;
-    LoginPage loginPage;
+   // private WebDriver driver;
+   // LoginPage loginPage;  no need for it as we used anonymous object  instead
 
     //tests
     @Test
     public void SuccessfullLogin() {
+        /*
         loginPage = new LoginPage(driver);
         loginPage.SetUserNameField("standard_user");
         loginPage.SetPasswordField("secret_sauce");
         loginPage.ClickLoginButton();
         loginPage.AssertSuccessLogin();
-        //new(LoginPage).SetUserNameField("standard_user").SetPasswordField("standard_user").ClickLoginButton().AssertSuccessLogin();
+        */
+
+        new LoginPage(DriverManager.getDriver()).
+                SetUserNameField("standard_user").SetPasswordField("secret_sauce").
+                ClickLoginButton().AssertSuccessLogin();
 
         /*in case of soft assertion the following line will be added:
         loginPage.SoftAssertSuccessfulLoginPage();*/
@@ -59,15 +65,15 @@ public class LoginTest {
          new LoginPage(driver).GoToLoginPage();
 
          */
-        driver = DriverManager.CreateDriver("edge");
-        new LoginPage(driver).GoToLoginPage();
+        DriverManager.CreateDriver("edge");
+        new LoginPage(DriverManager.getDriver()).GoToLoginPage();
 
 
     }
 
     @AfterMethod
     public void TearDown() {
-        driver.quit();
+        BrowserActions.quitBrowser(DriverManager.getDriver());
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
         // CustomSoftAssertion.customAssertAll();
     }
