@@ -7,7 +7,30 @@
     <groupId>org.example</groupId>
     <artifactId>Practice_Basics</artifactId>
     <version>1.0-SNAPSHOT</version>
+<build>
+    <directory>test-outputs/target</directory>
+    <plugins>
 
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.1.2</version>
+            <configuration>
+                <argLine>
+                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar"
+                </argLine>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>org.aspectj</groupId>
+                    <artifactId>aspectjweaver</artifactId>
+                    <version>1.9.20.1</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+
+    </plugins>>
+</build>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
