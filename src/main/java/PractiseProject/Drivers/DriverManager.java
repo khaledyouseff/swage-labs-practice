@@ -19,7 +19,7 @@ public class DriverManager {
     }
     // in pom.xml the scope was test so change it to compile so it can be recognized here
     @Step("creating a driver instance for : {BrowserName}")
-    
+
     public static WebDriver CreateDriver(String BrowserName) {
         WebDriver driver = BrowserFactory.GetBrowser(BrowserName);
         LogsUtilities.info("Driver created on:", BrowserName);

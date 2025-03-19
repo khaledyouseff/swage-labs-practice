@@ -1,9 +1,13 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Pages.LoginPage;
 import PractiseProject.Utilities.BrowserActions;
+import PractiseProject.Utilities.FileUtilities;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.io.File;
 
 public class LoginTest {
     //variable
@@ -66,7 +70,10 @@ public class LoginTest {
 
 
     }
-
+@AfterSuite
+public void beforeSuite(){
+    FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
+}
     @AfterMethod
     public void TearDown() {
         BrowserActions.quitBrowser(DriverManager.getDriver());
