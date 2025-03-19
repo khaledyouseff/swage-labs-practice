@@ -7,30 +7,31 @@
     <groupId>org.example</groupId>
     <artifactId>Practice_Basics</artifactId>
     <version>1.0-SNAPSHOT</version>
-<build>
-    <directory>test-outputs/target</directory>
-    <plugins>
+    <build>
+        <directory>test-outputs/target</directory>
+        <plugins>
 
             <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.1.2</version>
-            <configuration>
-                <argLine>
-                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar"
-                </argLine>
-            </configuration>
-            <dependencies>
-                <dependency>
-                    <groupId>org.aspectj</groupId>
-                    <artifactId>aspectjweaver</artifactId>
-                    <version>1.9.20.1</version>
-                </dependency>
-            </dependencies>
-        </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.20.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 
-    </plugins>>
-</build>
+        </plugins>
+        >
+    </build>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -55,9 +56,9 @@
 
             <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.28.1</version>
-    </dependency>
+            <artifactId>selenium-java</artifactId>
+            <version>4.28.1</version>
+        </dependency>
 
         <!-- TestNG -->
 
@@ -93,12 +94,12 @@
         </dependency>
 
         <!-- Allure TestNG -->
-    <!-- Add necessary Allure dependencies to dependencies section -->
-    <dependency>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-testng</artifactId>
-        <scope>test</scope>
-    </dependency>
+        <!-- Add necessary Allure dependencies to dependencies section -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <scope>compile</scope>
+        </dependency>
 
         <!-- Allure leverages AspectJ for the functionality of @Step and @Attachment annotations -->
         <dependency>
@@ -108,9 +109,6 @@
         </dependency>
 
     </dependencies>
-
-
-
 
 
 </project>

@@ -1,6 +1,7 @@
 package PractiseProject.Drivers;
 
 import PractiseProject.Utilities.LogsUtilities;
+import io.qameta.allure.Step;
 import net.bytebuddy.implementation.bind.annotation.Super;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.Logs;
@@ -16,13 +17,16 @@ public class DriverManager {
     private DriverManager() {
         super();
     }
-
+    // in pom.xml the scope was test so change it to compile so it can be recognized here
+    @Step("creating a driver instance for : {BrowserName}")
+    
     public static WebDriver CreateDriver(String BrowserName) {
         WebDriver driver = BrowserFactory.GetBrowser(BrowserName);
         LogsUtilities.info("Driver created on:", BrowserName);
         setDriver(driver);
         return getDriver();
     }
+
     /*This ensures each test thread gets its own WebDriver instance.
     Prevents conflicts when running multiple tests in parallel:*/
     public static WebDriver getDriver() {
@@ -32,7 +36,8 @@ public class DriverManager {
         }
         return driverThreadLocal.get();
     }
-    public static void setDriver(WebDriver driver){
+
+    public static void setDriver(WebDriver driver) {
         driverThreadLocal.set(driver);
     }
 

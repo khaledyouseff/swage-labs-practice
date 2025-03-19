@@ -4,11 +4,9 @@ import PractiseProject.Utilities.BrowserActions;
 import PractiseProject.Utilities.CustomSoftAssertion;
 import PractiseProject.Utilities.ElementAction;
 import PractiseProject.Utilities.Validations;
-import com.beust.ah.A;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-
 import static PractiseProject.Utilities.BrowserActions.GoToBrowser;
 
 public class LoginPage {
@@ -35,24 +33,25 @@ public class LoginPage {
     // It is recommended to start each page class with navigation method and end it with assertion method
 
     //navigation method:
+    @Step("Navigate to Login Page")
     public void GoToLoginPage() {
         GoToBrowser(driver, "https://www.saucedemo.com");
     }
 
     //Actions on login elements
-
+    @Step("Enter username")
     public LoginPage SetUserNameField(String UserNameText) {
         ElementAction.SendData(driver, UserName, UserNameText);
         return new LoginPage(driver);
         //or return this;
     }
-
+    @Step("Enter Password")
     public LoginPage SetPasswordField(String PasswordText) {
         ElementAction.SendData(driver, PassWord, PasswordText);
         return new LoginPage(driver);
         //or return this;
     }
-
+    @Step("Click login button")
     public LoginPage ClickLoginButton() {
         ElementAction.ClickElement(driver, LogInButton);
         return new LoginPage(driver);

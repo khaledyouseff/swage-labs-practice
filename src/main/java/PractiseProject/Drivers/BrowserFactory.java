@@ -16,17 +16,7 @@ public class BrowserFactory {
         //.toLowerCase() to neglect upper or lower case letters
         switch(BrowserName.toLowerCase()){
             case "chrome" :
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--start-maximized");
-                chromeOptions.addArguments("--disable-notifications");
-                chromeOptions.addArguments("--disable-extensions");
-                chromeOptions.addArguments("--disable-infobars");
-                chromeOptions.addArguments("--remote-allow-origins=*");
-                Map<String , Object> ChromePrefs=Map.of("profile.managed_default_content_settings.notification" , false ,
-                        "credentials_enable_service", false ,
-                        "profile_password_manager_enabled", false ,
-                        "autofill.profile_enabled", false);
-                chromeOptions.setExperimentalOption("prefs" , ChromePrefs);
+                ChromeOptions chromeOptions = getChromeOptions();
 
                 return new ChromeDriver(chromeOptions);
             case "firefox" :
@@ -36,7 +26,7 @@ public class BrowserFactory {
                 firefoxOptions.addArguments("--disable-extensions");
                 firefoxOptions.addArguments("--disable-infobars");
                 firefoxOptions.addArguments("--remote-allow-origins=*");
-                
+
                 return new FirefoxDriver(firefoxOptions);
 
             default :
@@ -50,5 +40,20 @@ public class BrowserFactory {
                 return new EdgeDriver(edgeOptions);
 
         }
+    }
+
+    private static ChromeOptions getChromeOptions() {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("--disable-extensions");
+        chromeOptions.addArguments("--disable-infobars");
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        Map<String , Object> ChromePrefs=Map.of("profile.managed_default_content_settings.notification" , false ,
+                "credentials_enable_service", false ,
+                "profile_password_manager_enabled", false ,
+                "autofill.profile_enabled", false);
+        chromeOptions.setExperimentalOption("prefs" , ChromePrefs);
+        return chromeOptions;
     }
 }

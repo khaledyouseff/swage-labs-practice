@@ -1,11 +1,12 @@
 package PractiseProject.Utilities;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ElementAction {
-
+    @Step("Sending data : {data} to element : {locator}")
     public static void SendData(WebDriver driver, By locator ,String data){
         Waits.WaitForElementVisibility(driver , locator);
         Scroll.ScrollToElement(driver,locator);
@@ -13,6 +14,7 @@ public class ElementAction {
         LogsUtilities.info("data entered is :" , data, " in field:", locator.toString());
     }
 
+    @Step("Clicking the element : {locator}")
     public static void ClickElement(WebDriver driver , By locator){
         Waits.WaitForElementToBeClickable(driver , locator);
         Scroll.ScrollToElement(driver,locator);
@@ -25,6 +27,8 @@ public class ElementAction {
 
        return driver.findElement(locator);
     }
+
+    @Step("Getting text of the element : {locator}")
     public static String GetText(WebDriver driver , By locator){
         LogsUtilities.info("Getting the text of the element:" ,  locator.toString() , "text" , FindElement(driver,locator).getText());
 
