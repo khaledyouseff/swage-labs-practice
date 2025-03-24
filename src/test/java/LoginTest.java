@@ -1,22 +1,22 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Pages.LoginPage;
+import PractiseProject.Utilities.AllureUtilities;
 import PractiseProject.Utilities.BrowserActions;
 import PractiseProject.Utilities.FileUtilities;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import PractiseProject.Utilities.ScreenshotsUtilities;
+import org.testng.annotations.*;
 
 import java.io.File;
+import java.io.IOException;
 
 public class LoginTest {
     //variable
-   // private WebDriver driver;
-   // LoginPage loginPage;  no need for it as we used anonymous object  instead
+    // private WebDriver driver;
+    // LoginPage loginPage;  no need for it as we used anonymous object  instead
 
     //tests
     @Test
-    public void SuccessfullLogin() {
+    public void SuccessfullLogin() throws IOException {
         /*
         loginPage = new LoginPage(driver);
         loginPage.SetUserNameField("standard_user");
@@ -28,7 +28,7 @@ public class LoginTest {
         new LoginPage(DriverManager.getDriver()).
                 SetUserNameField("standard_user").SetPasswordField("secret_sauce").
                 ClickLoginButton().AssertSuccessLogin();
-
+        ScreenshotsUtilities.takeScreenshot("Successful login");
         /*in case of soft assertion the following line will be added:
         loginPage.SoftAssertSuccessfulLoginPage();*/
 
@@ -70,15 +70,22 @@ public class LoginTest {
 
 
     }
-@AfterSuite
-public void beforeSuite(){
-    FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
-}
+
+    @BeforeSuite
+    public void beforeSuite() {
+        FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
+    }
+
     @AfterMethod
     public void TearDown() {
         BrowserActions.quitBrowser(DriverManager.getDriver());
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
         // CustomSoftAssertion.customAssertAll();
+    }
+
+    @AfterClass
+    public void AfterClass() {
+        AllureUtilities.AttachLogsToAllureReport();
     }
 
 
