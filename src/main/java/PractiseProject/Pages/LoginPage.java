@@ -8,6 +8,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import static PractiseProject.Utilities.BrowserActions.GoToBrowser;
+import static PractiseProject.Utilities.PropertiesUtilities.getPropertyValue;
 
 public class LoginPage {
     private final WebDriver driver;
@@ -35,7 +36,7 @@ public class LoginPage {
     //navigation method:
     @Step("Navigate to Login Page")
     public void GoToLoginPage() {
-        GoToBrowser(driver, "https://www.saucedemo.com");
+        GoToBrowser(driver, getPropertyValue("baseURL"));
     }
 
     //Actions on login elements
@@ -64,15 +65,15 @@ public class LoginPage {
     //we will  assert that if the new url of homepage is displayed that it is successful , otherwise check error msg
     //Not that we need to change the scope of testng in pom.xml file from test to compile
     public LoginPage AssertSuccessLogin() {
-        Validations.AssertPageURL((driver), "https://www.saucedemo.com/inventory.html");
-        Validations.AssertPageTitle(driver,"Swag Labs");
+        Validations.AssertPageURL((driver), getPropertyValue("homeURL"));
+        Validations.AssertPageTitle(driver,getPropertyValue("homaPageTitle"));
         return new LoginPage(driver);
 
     }
 
     public LoginPage AssertFailedLogin() {
         Validations.AssertEquals(ElementAction.GetText(driver, LoginErrorMessage),
-                "Epic sadface: Username and password do not match any user in this service", "Login Failed");
+                getPropertyValue("errorMessage"), "Login Failed");
         return new LoginPage(driver);
     }
     //soft assertions:
@@ -82,12 +83,12 @@ public class LoginPage {
          which means it belongs to the class itself, not an instance.
          Since it is static, you can access it using the class name as follows:*/
         CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.GetCurrentBrowserURL(driver),
-                "https://www.saucedemo.com/inventory.html" , "Title is not as expected");
+                getPropertyValue("homeURL") , "URL is not as expected");
         return new LoginPage(driver);
     }
     public LoginPage SoftAssertLoginPageTitle() {
         CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.GetPageTitle(driver),
-                "Swag-Labs" , "Title is not as expected");
+                getPropertyValue("homePageTitle") , "Title is not as expected");
 
         return new LoginPage(driver);
     }

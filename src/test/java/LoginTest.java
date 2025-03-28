@@ -1,18 +1,18 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Pages.LoginPage;
-import PractiseProject.Utilities.AllureUtilities;
-import PractiseProject.Utilities.BrowserActions;
-import PractiseProject.Utilities.FileUtilities;
-import PractiseProject.Utilities.ScreenshotsUtilities;
+import PractiseProject.Utilities.*;
 import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
 
+import static PractiseProject.Utilities.PropertiesUtilities.LoadProperties;
+
 public class LoginTest {
-    //variable
+    //variables
     // private WebDriver driver;
     // LoginPage loginPage;  no need for it as we used anonymous object  instead
+    String browserName = PropertiesUtilities.getPropertyValue("browserType");
 
     //tests
     @Test
@@ -65,7 +65,7 @@ public class LoginTest {
          new LoginPage(driver).GoToLoginPage();
 
          */
-        DriverManager.CreateDriver("edge");
+        DriverManager.CreateDriver(browserName);
         new LoginPage(DriverManager.getDriver()).GoToLoginPage();
 
 
@@ -73,6 +73,7 @@ public class LoginTest {
 
     @BeforeSuite
     public void beforeSuite() {
+        LoadProperties();
         FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
     }
 
