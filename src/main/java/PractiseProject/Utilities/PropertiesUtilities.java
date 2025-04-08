@@ -45,15 +45,20 @@ public class PropertiesUtilities {
             return null;
         }
     }
-    public static String getPropertyValue(String key){
-        try{
-            return System.getProperty(key);
-        } catch (Exception e) {
-            LogsUtilities.error(e.getMessage());
-            return "";
+
+    public static String getPropertyValue(String key) {
+
+            String value = System.getProperty(key);
+
+            if (value == null) {
+                LogsUtilities.warn(" Property not found for key: " + key);
+            } else {
+                LogsUtilities.info("Retrieved property: " + key + " = " + value);
+            }
+            return value;
         }
         /*NOTE: i created this method just for the logs and the exception but i could have used this line:
           System.getProperty(key); directly each time i want to get a property value*/
-    }
 
-}
+
+        }

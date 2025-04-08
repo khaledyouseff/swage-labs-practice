@@ -12,8 +12,39 @@ public class LoginTest {
     //variables
     // private WebDriver driver;
     // LoginPage loginPage;  no need for it as we used anonymous object  instead
-    String browserName = PropertiesUtilities.getPropertyValue("browserType");
+    String browserName ;
 
+    @BeforeSuite
+    public void beforeSuite() {
+        PropertiesUtilities.LoadProperties();
+        FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
+    }
+
+    @BeforeMethod
+    public void Setup() {
+        // ic created a class to instantiate the driver so i do not need all this
+        /*
+        EdgeOptions option = new EdgeOptions();
+        //to max the window
+        option.addArguments("Start-Maximized");
+        /*to wait until the page is ready as we do not want to use explicit wait
+         as we used it before to avoid concurrency issues :
+        option.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        driver = new EdgeDriver(option);
+        loginPage = new LoginPage(driver);
+        loginPage.GoToLoginPage();*/
+
+        /*or use an anonymous object so instead of:  LoginPage loginPage; loginPage = new LoginPage(driver);
+         loginPage.GoToLoginPage(); we will write one line as follows :
+         new LoginPage(driver).GoToLoginPage();
+
+         */
+        browserName= PropertiesUtilities.getPropertyValue("browserType");
+        DriverManager.CreateDriver(browserName);
+        new LoginPage(DriverManager.getDriver()).GoToLoginPage();
+
+
+    }
     //tests
     @Test
     public void SuccessfullLogin() throws IOException {
@@ -46,36 +77,9 @@ public class LoginTest {
     }
 
     //configurations
-    @BeforeMethod
-    public void Setup() {
-        // ic created a class to instantiate the driver so i do not need all this
-        /*
-        EdgeOptions option = new EdgeOptions();
-        //to max the window
-        option.addArguments("Start-Maximized");
-        /*to wait until the page is ready as we do not want to use explicit wait
-         as we used it before to avoid concurrency issues :
-        option.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new EdgeDriver(option);
-        loginPage = new LoginPage(driver);
-        loginPage.GoToLoginPage();*/
-
-        /*or use an anonymous object so instead of:  LoginPage loginPage; loginPage = new LoginPage(driver);
-         loginPage.GoToLoginPage(); we will write one line as follows :
-         new LoginPage(driver).GoToLoginPage();
-
-         */
-        DriverManager.CreateDriver(browserName);
-        new LoginPage(DriverManager.getDriver()).GoToLoginPage();
 
 
-    }
 
-    @BeforeSuite
-    public void beforeSuite() {
-        LoadProperties();
-        FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
-    }
 
     @AfterMethod
     public void TearDown() {

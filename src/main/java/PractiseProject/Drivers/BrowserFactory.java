@@ -35,7 +35,7 @@ public class BrowserFactory {
                 edgeOptions.addArguments("--disable-notifications");
                 edgeOptions.addArguments("--disable-extensions");
                 edgeOptions.addArguments("--disable-infobars");
-                edgeOptions.addArguments("--remote-allow-origins=*");
+               // edgeOptions.addArguments("--remote-allow-origins=*");
 
                 return new EdgeDriver(edgeOptions);
 
