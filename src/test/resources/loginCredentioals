@@ -1,5 +1,6 @@
-{ "successful-Login" : {
-"userName" : "standard-user" ,
-"Password" : "secret-sauce"
+{
+"successful-Login" : {
+"username" : "standard-user" ,
+"password" : "secret-sauce"
 }
 }
