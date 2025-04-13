@@ -13,11 +13,13 @@ public class LoginTest {
     // private WebDriver driver;
     // LoginPage loginPage;  no need for it as we used anonymous object  instead
     String browserName ;
+    JsonUtilities testData;
 
     @BeforeSuite
     public void beforeSuite() {
         PropertiesUtilities.LoadProperties();
         FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
+        testData = new JsonUtilities("test_data");
     }
 
     @BeforeMethod
@@ -45,6 +47,7 @@ public class LoginTest {
 
 
     }
+
     //tests
     @Test
     public void SuccessfullLogin() throws IOException {
@@ -57,7 +60,8 @@ public class LoginTest {
         */
 
         new LoginPage(DriverManager.getDriver()).
-                SetUserNameField("standard_user").SetPasswordField("secret_sauce").
+                SetUserNameField(testData.getJsonData("successful-Login.username")).
+                SetPasswordField(testData.getJsonData("successful-Login.password")).
                 ClickLoginButton().AssertSuccessLogin();
         ScreenshotsUtilities.takeScreenshot("Successful login");
         /*in case of soft assertion the following line will be added:
@@ -80,14 +84,14 @@ public class LoginTest {
 
 
 
-
+/*
     @AfterMethod
     public void TearDown() {
         BrowserActions.quitBrowser(DriverManager.getDriver());
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
         // CustomSoftAssertion.customAssertAll();
     }
-
+*/
     @AfterClass
     public void AfterClass() {
         AllureUtilities.AttachLogsToAllureReport();

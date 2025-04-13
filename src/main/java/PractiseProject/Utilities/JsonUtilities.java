@@ -7,7 +7,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 
 public class JsonUtilities {
-    public static final String JSON_FILE_PATH = "src/test/resources";
+    public static final String JSON_FILE_PATH = "src/test/resources/";
     String jsonReader;
     String jsonFileName;
 

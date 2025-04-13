@@ -1,0 +1,41 @@
+[DEBUG] - [14-04-2025 00:45:51] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml"
+[INFO] - [14-04-2025 00:45:52] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+
+[INFO] - [14-04-2025 00:45:52] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\allure.properties
+[INFO] - [14-04-2025 00:45:52] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\environment.properties
+[INFO] - [14-04-2025 00:45:52] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\log4j2.properties
+[INFO] - [14-04-2025 00:45:52] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\web.properties
+[INFO] - [14-04-2025 00:45:52] [main] [PractiseProject.Utilities.PropertiesUtilities] - All properties successfully loaded and added to system properties.
+[ERROR] - [14-04-2025 00:45:52] [main] [PractiseProject.Utilities.JsonUtilities] - src\test\resourcestest_data.json.json (The system cannot find the file specified)
+[INFO] - [14-04-2025 00:45:52] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: browserType = chrome
+[INFO] - [14-04-2025 00:45:57] [main] [PractiseProject.Drivers.DriverManager] - Driver created on:chrome
+[INFO] - [14-04-2025 00:45:57] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: baseURL = https://www.saucedemo.com
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.BrowserActions] - Navigated to URL:https://www.saucedemo.com
+[ERROR] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.JsonUtilities] - json string can not be null or empty NO result for json path: successful-Login.username in the json file:test_data.json'
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'successful-Login.username' in the json file: 'test_data.json' has value: ''
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: user-name
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: user-name
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: user-name
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Scroll] - Scrolling to the elementBy.id: user-name
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: user-name
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.ElementAction] - data entered is : in field:By.id: user-name
+[ERROR] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.JsonUtilities] - json string can not be null or empty NO result for json path: successful-Login.password in the json file:test_data.json'
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'successful-Login.password' in the json file: 'test_data.json' has value: ''
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: password
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: password
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: password
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Scroll] - Scrolling to the elementBy.id: password
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: password
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.ElementAction] - data entered is : in field:By.id: password
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be clickable:By.id: login-button
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: login-button
+[INFO] - [14-04-2025 00:45:59] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: login-button
+[INFO] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: login-button
+[INFO] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.Scroll] - Scrolling to the elementBy.id: login-button
+[INFO] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: login-button
+[INFO] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.ElementAction] - click on element:By.id: login-button
+[INFO] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: homeURL = https://www.saucedemo.com/inventory.html
+[INFO] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.BrowserActions] - Current URL:https://www.saucedemo.com/
+[INFO] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.BrowserActions] - Quiting the browser
+[ERROR] - [14-04-2025 00:46:00] [main] [PractiseProject.Utilities.AllureUtilities] - Failed to add logs to Allure report: test-outputs\logs
