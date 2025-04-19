@@ -1,5 +1,4 @@
 package PractiseProject.Pages;
-
 import PractiseProject.Utilities.BrowserActions;
 import PractiseProject.Utilities.CustomSoftAssertion;
 import PractiseProject.Utilities.ElementAction;
@@ -25,7 +24,6 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
-
 
     //Actions -->   WE need to 1-wait  2- scroll 3-find  4-make action
     /*So we need to put the repeated functions of finding elements , waits and scrolls

@@ -35,16 +35,21 @@ public   class FileUtilities {
     }
 
     public static File getLatestFile(String folderPath) {
-        File file = new File(folderPath);
-        File[] files = file.listFiles();
+        File directory = new File(folderPath);
+        File[] files = directory.listFiles();
         if (files == null || files.length == 0) {
             LogsUtilities.warn("No files found in directory : " + folderPath);
             return null;
         }
+
         File latestFile = files[0];
-        if (file.lastModified() > latestFile.lastModified()) {
-            latestFile = file;
+
+        for (File file : files) {
+            if (file.lastModified() > latestFile.lastModified()) {
+                latestFile = file;
+            }
         }
+
         return latestFile;
     }
 }

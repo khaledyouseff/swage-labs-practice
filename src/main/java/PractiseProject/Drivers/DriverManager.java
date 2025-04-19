@@ -21,10 +21,10 @@ public class DriverManager {
     @Step("creating a driver instance for : {BrowserName}")
 
     public static WebDriver CreateDriver(String BrowserName) {
-        WebDriver driver = BrowserFactory.GetBrowser(BrowserName);
+        WebDriver driver = BrowserFactory.GetBrowser(BrowserName);  // This line creates the driver
         LogsUtilities.info("Driver created on:", BrowserName);
-        setDriver(driver);
-        return getDriver();
+        setDriver(driver);  // stores it in ThreadLocal
+        return getDriver(); // returns it for use in tests
     }
 
     /*This ensures each test thread gets its own WebDriver instance.

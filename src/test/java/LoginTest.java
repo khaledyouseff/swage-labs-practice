@@ -84,16 +84,16 @@ public class LoginTest {
 
 
 
-/*
-    @AfterMethod
+
+   @AfterMethod
     public void TearDown() {
         BrowserActions.quitBrowser(DriverManager.getDriver());
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
         // CustomSoftAssertion.customAssertAll();
     }
-*/
+
     @AfterClass
-    public void AfterClass() {
+    public void AttachLogsTOAllureReport() {
         AllureUtilities.AttachLogsToAllureReport();
     }
 
