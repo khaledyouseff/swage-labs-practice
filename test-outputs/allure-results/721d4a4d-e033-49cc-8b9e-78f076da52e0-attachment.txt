@@ -1,0 +1,11 @@
+[DEBUG] - [19-04-2025 19:27:14] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml"
+[INFO] - [19-04-2025 19:27:15] [main] [PractiseProject.Listeners.TestNGListeners] - Test Execution Started
+[INFO] - [19-04-2025 19:27:15] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\allure.properties
+[INFO] - [19-04-2025 19:27:15] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\environment.properties
+[INFO] - [19-04-2025 19:27:15] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\log4j2.properties
+[INFO] - [19-04-2025 19:27:15] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\web.properties
+[INFO] - [19-04-2025 19:27:15] [main] [PractiseProject.Utilities.PropertiesUtilities] - All properties successfully loaded and added to system properties.
+[ERROR] - [19-04-2025 19:27:15] [main] [PractiseProject.Utilities.FileUtilities] - 1 exception(s): [org.apache.commons.io.IOIndexedException: IOException #54: Cannot delete file: test-outputs\logs\log_2025-04-19_19-27-13.log]
+[INFO] - [19-04-2025 19:27:15] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+

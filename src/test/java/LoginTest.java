@@ -1,13 +1,12 @@
 import PractiseProject.Drivers.DriverManager;
+import PractiseProject.Listeners.TestNGListeners;
 import PractiseProject.Pages.LoginPage;
 import PractiseProject.Utilities.*;
 import org.testng.annotations.*;
-
 import java.io.File;
 import java.io.IOException;
-
 import static PractiseProject.Utilities.PropertiesUtilities.LoadProperties;
-
+@Listeners(TestNGListeners.class) //Without this line the driver will be null as the properties will not be loaded
 public class LoginTest {
     //variables
     // private WebDriver driver;
