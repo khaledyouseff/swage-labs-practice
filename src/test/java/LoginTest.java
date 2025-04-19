@@ -66,7 +66,7 @@ public class LoginTest {
                 SetUserNameField(testData.getJsonData("successful-Login.username")).
                 SetPasswordField(testData.getJsonData("successful-Login.password")).
                 ClickLoginButton().AssertSuccessLogin();
-        ScreenshotsUtilities.takeScreenshot("Successful login");
+       //  ScreenshotsUtilities.takeScreenshot("Successful login");  moved to listener class
         /*in case of soft assertion the following line will be added:
         loginPage.SoftAssertSuccessfulLoginPage();*/
 
@@ -97,7 +97,7 @@ public class LoginTest {
 
     @AfterClass
     public void AttachLogsTOAllureReport() {
-        AllureUtilities.AttachLogsToAllureReport();
+       // AllureUtilities.AttachLogsToAllureReport();  moved to listener class
     }
 
 
