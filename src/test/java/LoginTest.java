@@ -15,10 +15,13 @@ public class LoginTest {
     String browserName ;
     JsonUtilities testData;
 
-    @BeforeSuite
-    public void beforeSuite() {
-        PropertiesUtilities.LoadProperties();
-        FileUtilities.deleteFiles(new File("test-outputs/allure-results"));
+    @BeforeClass
+    public void beforeClass() {
+       // PropertiesUtilities.LoadProperties();  move it to listeners class
+       // FileUtilities.deleteFiles(new File("test-outputs/allure-results"));  move it to listeners class
+        /* After moving the above lines to lister class i changed the
+        annotation from @BeforClass to @BeforMethod as the test data needed to be seen only at the class
+         */
         testData = new JsonUtilities("test_data");
     }
 

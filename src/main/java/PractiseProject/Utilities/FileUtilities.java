@@ -1,10 +1,12 @@
 package PractiseProject.Utilities;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public   class FileUtilities {
+public class FileUtilities {
     private FileUtilities() {
     }
 
@@ -51,5 +53,13 @@ public   class FileUtilities {
         }
 
         return latestFile;
+    }
+
+    public static void cleanDirectory(File file) {
+        try {
+            FileUtils.cleanDirectory(file);
+        } catch (Exception e) {
+            LogsUtilities.error(e.getMessage());
+        }
     }
 }
