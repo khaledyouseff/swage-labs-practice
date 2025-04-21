@@ -1,30 +1,34 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Listeners.TestNGListeners;
+import PractiseProject.Pages.HomePage;
 import PractiseProject.Pages.LoginPage;
 import PractiseProject.Utilities.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import java.io.File;
+
 import java.io.IOException;
-import static PractiseProject.Utilities.PropertiesUtilities.LoadProperties;
+
 @Listeners(TestNGListeners.class) //Without this line the driver will be null as the properties will not be loaded
-public class LoginTest {
+public class E2E {
     //variables
     // private WebDriver driver;
     // LoginPage loginPage;  no need for it as we used anonymous object  instead
-    String browserName ;
+    String browserName;
     JsonUtilities testData;
+    WebDriver driver;
 
+    //configurations
     @BeforeClass
     public void beforeClass() {
-       // PropertiesUtilities.LoadProperties();  move it to listeners class
-       // FileUtilities.deleteFiles(new File("test-outputs/allure-results"));  move it to listeners class
+        // PropertiesUtilities.LoadProperties();  move it to listeners class
+        // FileUtilities.deleteFiles(new File("test-outputs/allure-results"));  move it to listeners class
         /* After moving the above lines to lister class i changed the
         annotation from @BeforClass to @BeforMethod as the test data needed to be seen only at the class
          */
         testData = new JsonUtilities("test_data");
     }
 
-    @BeforeMethod
+    @BeforeClass // I changed it from before method to before class as i will write more than one method for tests
     public void Setup() {
         // ic created a class to instantiate the driver so i do not need all this
         /*
@@ -43,8 +47,8 @@ public class LoginTest {
          new LoginPage(driver).GoToLoginPage();
 
          */
-        browserName= PropertiesUtilities.getPropertyValue("browserType");
-        DriverManager.CreateDriver(browserName);
+        browserName = PropertiesUtilities.getPropertyValue("browserType");
+        driver=  DriverManager.CreateDriver(browserName);
         new LoginPage(DriverManager.getDriver()).GoToLoginPage();
 
 
@@ -65,7 +69,7 @@ public class LoginTest {
                 SetUserNameField(testData.getJsonData("successful-Login.username")).
                 SetPasswordField(testData.getJsonData("successful-Login.password")).
                 ClickLoginButton().AssertSuccessLogin();
-       //  ScreenshotsUtilities.takeScreenshot("Successful login");  moved to listener class
+        //  ScreenshotsUtilities.takeScreenshot("Successful login");  moved to listener class
         /*in case of soft assertion the following line will be added:
         loginPage.SoftAssertSuccessfulLoginPage();*/
 
@@ -81,13 +85,14 @@ public class LoginTest {
          */
 
     }
+    @Test(dependsOnMethods = "SuccessfullLogin")
+    public void AddItemToCart(){
+        new HomePage(driver).addToItemTOCart(testData.getJsonData("productInfo.product1.name"));
 
-    //configurations
+    }
 
 
-
-
-   @AfterMethod
+    @AfterMethod
     public void TearDown() {
         BrowserActions.quitBrowser(DriverManager.getDriver());
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
@@ -96,7 +101,7 @@ public class LoginTest {
 
     @AfterClass
     public void AttachLogsTOAllureReport() {
-       // AllureUtilities.AttachLogsToAllureReport();  moved to listener class
+        // AllureUtilities.AttachLogsToAllureReport();  moved to listener class
     }
 
 

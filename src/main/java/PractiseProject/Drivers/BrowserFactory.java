@@ -50,6 +50,7 @@ public class BrowserFactory {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--disable-infobars");
+        chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--remote-allow-origins=*");
         Map<String , Object> ChromePrefs=Map.of("profile.managed_default_content_settings.notification" , false ,
                 "credentials_enable_service", false ,

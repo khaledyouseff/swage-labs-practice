@@ -1,6 +1,16 @@
 {
-  "successful-Login" : {
-    "username" : "standard_user" ,
-    "password" : "secret_sauce"
+  "successful-Login": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "productInfo": {
+    "product1": {
+      "name": "Sauce Labs Backpack",
+      "price": "$29.99"
+    },
+    "product2": {
+      "name": "Sauce Labs Bike Light",
+      "price": "$9.99"
+    }
   }
 }
