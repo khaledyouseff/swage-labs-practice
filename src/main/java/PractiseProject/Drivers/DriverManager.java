@@ -23,7 +23,7 @@ public class DriverManager {
     public static WebDriver CreateDriver(String BrowserName) {
         WebDriver driver = BrowserFactory.GetBrowser(BrowserName);  // This line creates the driver
         LogsUtilities.info("Driver created on:", BrowserName);
-        setDriver(driver);  // stores it in ThreadLocal
+        setDriver(driver);  // stores the driver  in ThreadLocal
         return getDriver(); // returns it for use in tests
     }
 

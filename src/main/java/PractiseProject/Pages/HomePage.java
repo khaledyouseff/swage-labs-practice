@@ -1,9 +1,6 @@
 package PractiseProject.Pages;
 
-import PractiseProject.Utilities.BrowserActions;
-import PractiseProject.Utilities.ElementAction;
-import PractiseProject.Utilities.LogsUtilities;
-import PractiseProject.Utilities.PropertiesUtilities;
+import PractiseProject.Utilities.*;
 import com.google.common.base.FinalizablePhantomReference;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +17,7 @@ public class HomePage {
         this.driver = driver;
     }
     //locators
+    By CartIcon = By.id("shopping_cart_container");
 
     //actions
     public HomePage navigateToHomePage(){
@@ -27,12 +25,27 @@ public class HomePage {
         return this;
     }
     public HomePage addToItemTOCart(String productName) {
-        LogsUtilities.info("Adding" + productName + "to cart");
+        LogsUtilities.info("Adding " + productName + "to cart");
         By addToCart = RelativeLocator.with(By.tagName("button")).below(By.xpath("//div[.='"+ productName +"']"));
+
+        LogsUtilities.info("Locator for adding to cart: " + addToCart);
         ElementAction.FindElement(driver , addToCart);
         ElementAction.ClickElement(driver,addToCart);
         return this;
     }
+    public CartPage ClickOnCartIcon(){
+        ElementAction.ClickElement(driver,CartIcon);
+        return new CartPage(driver);
+    }
     //validations
+    public HomePage assertAddItemToCart(String productName){
+        By addToCart = RelativeLocator.with(By.tagName("button")).below(By.xpath("//div[.='"+ productName +"']"));
+
+        String actualValue= ElementAction.GetText(driver,addToCart);
+        LogsUtilities.info("Actual value is :" + actualValue);
+        Validations.AssertEquals(actualValue, "Remove","Product not added to cart");
+
+        return new HomePage(driver);
+    }
 
 }

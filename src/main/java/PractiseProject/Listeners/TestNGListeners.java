@@ -31,9 +31,13 @@ public class TestNGListeners implements IExecutionListener, ITestListener, IInvo
 
     @Override
     public void afterInvocation(IInvokedMethod method, ITestResult testResultt) {
+
         // to attach only after the test method not the other methods in test class
        if(method.isTestMethod())
        {
+           //should be added here so the result of soft assertion appears
+           CustomSoftAssertion.customAssertAll();
+
            switch (testResultt.getStatus()){
                case ITestResult.SUCCESS -> {
                    try {
@@ -64,6 +68,7 @@ public class TestNGListeners implements IExecutionListener, ITestListener, IInvo
            }
        }
         AllureUtilities.AttachLogsToAllureReport();
+
     }
     @Override
     public void onTestSuccess(ITestResult result) {

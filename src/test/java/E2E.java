@@ -1,5 +1,6 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Listeners.TestNGListeners;
+import PractiseProject.Pages.CartPage;
 import PractiseProject.Pages.HomePage;
 import PractiseProject.Pages.LoginPage;
 import PractiseProject.Utilities.*;
@@ -24,13 +25,17 @@ public class E2E {
         // FileUtilities.deleteFiles(new File("test-outputs/allure-results"));  move it to listeners class
         /* After moving the above lines to lister class i changed the
         annotation from @BeforClass to @BeforMethod as the test data needed to be seen only at the class
+        but then returened to @BeforeClass as i added more than test case ,OR the JSON file will be loaded
+        before every single test method — which might be slower and redundant if the data doesn't change between tests.
          */
+
+        //Loads a JSON file once when instantiated:
         testData = new JsonUtilities("test_data");
     }
 
     @BeforeClass // I changed it from before method to before class as i will write more than one method for tests
     public void Setup() {
-        // ic created a class to instantiate the driver so i do not need all this
+        // i created a class to instantiate the driver so i do not need all this:
         /*
         EdgeOptions option = new EdgeOptions();
         //to max the window
@@ -48,13 +53,13 @@ public class E2E {
 
          */
         browserName = PropertiesUtilities.getPropertyValue("browserType");
-        driver=  DriverManager.CreateDriver(browserName);
-        new LoginPage(DriverManager.getDriver()).GoToLoginPage();
+        driver = DriverManager.CreateDriver(browserName);
+        new LoginPage(driver).GoToLoginPage();
 
 
     }
 
-    //tests
+    //Tests
     @Test
     public void SuccessfullLogin() throws IOException {
         /*
@@ -85,14 +90,19 @@ public class E2E {
          */
 
     }
-    @Test(dependsOnMethods = "SuccessfullLogin")
-    public void AddItemToCart(){
-        new HomePage(driver).addToItemTOCart(testData.getJsonData("productInfo.product1.name"));
 
+    @Test(dependsOnMethods = "SuccessfullLogin")
+    public void AddItemToCart() {
+        new HomePage(driver).addToItemTOCart(testData.getJsonData("productInfo.product1.name"))
+                .assertAddItemToCart(testData.getJsonData("productInfo.product1.name"));
+    }
+    @Test(dependsOnMethods = "AddItemToCart")
+    public void checkoutItem(){
+        new HomePage(driver).ClickOnCartIcon().assertItemDetails(
+                testData.getJsonData("productInfo.product1.name") ,testData.getJsonData("productInfo.product1.price"));
     }
 
-
-    @AfterMethod
+    @AfterClass
     public void TearDown() {
         BrowserActions.quitBrowser(DriverManager.getDriver());
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
@@ -103,6 +113,4 @@ public class E2E {
     public void AttachLogsTOAllureReport() {
         // AllureUtilities.AttachLogsToAllureReport();  moved to listener class
     }
-
-
 }

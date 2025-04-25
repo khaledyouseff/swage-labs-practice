@@ -12,11 +12,14 @@ public class JsonUtilities {
     String jsonFileName;
 
 
-    // I created this object to recall it whenever i want to use a data from
+    // I created this constructor to recall any object whenever I want to use a data from
     public JsonUtilities(String jsonFileName) {
         this.jsonFileName = jsonFileName;
         try {
+            //Reads and parses the file into a JSON object.
+            //Converts the object to a JSON string and stores it in jsonReader.
             JSONObject data = (JSONObject) new JSONParser().parse(new FileReader(JSON_FILE_PATH + jsonFileName + ".json"));
+            //Will hold the raw JSON string (after reading and parsing the file):
             jsonReader = data.toJSONString();
         } catch (Exception e) {
             LogsUtilities.error(e.getMessage());
@@ -29,7 +32,7 @@ public class JsonUtilities {
         try {
             testData = JsonPath.read(jsonReader, jsonPath);
         } catch (Exception e) {
-            LogsUtilities.error(e.getMessage(), " NO result for json path: " + jsonPath + " in the json file:", this.jsonFileName + "'" );
+            LogsUtilities.error(e.getMessage(), " NO result for json path: " + jsonPath + " in the json file:", this.jsonFileName + "'");
         }
         LogsUtilities.info("Json path: '" + jsonPath + "' in the json file: '" + this.jsonFileName + "' has value: '" + testData + "'");
 
