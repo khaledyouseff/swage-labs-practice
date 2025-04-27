@@ -2,6 +2,7 @@ package PractiseProject.Pages;
 
 import PractiseProject.Utilities.*;
 import com.google.common.base.FinalizablePhantomReference;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
@@ -20,10 +21,12 @@ public class HomePage {
     By CartIcon = By.id("shopping_cart_container");
 
     //actions
+    @Step("navigate to homepage")
     public HomePage navigateToHomePage(){
         BrowserActions.GoToBrowser(driver , PropertiesUtilities.getPropertyValue("homeURL"));
         return this;
     }
+    @Step("Add an item to the cart")
     public HomePage addToItemTOCart(String productName) {
         LogsUtilities.info("Adding " + productName + "to cart");
         By addToCart = RelativeLocator.with(By.tagName("button")).below(By.xpath("//div[.='"+ productName +"']"));
@@ -33,11 +36,13 @@ public class HomePage {
         ElementAction.ClickElement(driver,addToCart);
         return this;
     }
+    @Step("Click  cart icon")
     public CartPage ClickOnCartIcon(){
         ElementAction.ClickElement(driver,CartIcon);
         return new CartPage(driver);
     }
     //validations
+    @Step("Assert adding item to the cart")
     public HomePage assertAddItemToCart(String productName){
         By addToCart = RelativeLocator.with(By.tagName("button")).below(By.xpath("//div[.='"+ productName +"']"));
 

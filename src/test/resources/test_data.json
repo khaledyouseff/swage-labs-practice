@@ -12,5 +12,10 @@
       "name": "Sauce Labs Bike Light",
       "price": "$9.99"
     }
-  }
+  },
+"information-form":{
+  "first-name": "khaled",
+  "last-name": "yousef",
+  "postal-code": "123456"
+}
 }

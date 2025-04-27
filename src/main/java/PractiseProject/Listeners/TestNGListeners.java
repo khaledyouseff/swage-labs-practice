@@ -35,8 +35,15 @@ public class TestNGListeners implements IExecutionListener, ITestListener, IInvo
         // to attach only after the test method not the other methods in test class
        if(method.isTestMethod())
        {
-           //should be added here so the result of soft assertion appears
-           CustomSoftAssertion.customAssertAll();
+           try {
+               //should be added here so the result of soft assertion appears
+               // I put it in try,catch so if the exception happens it ends the session
+               CustomSoftAssertion.customAssertAll();
+           } catch (Exception e) {
+               testResultt.setStatus(ITestResult.FAILURE);
+               testResultt.setThrowable(e);
+           }
+
 
            switch (testResultt.getStatus()){
                case ITestResult.SUCCESS -> {

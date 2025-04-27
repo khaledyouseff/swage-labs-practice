@@ -1,6 +1,7 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Listeners.TestNGListeners;
 import PractiseProject.Pages.CartPage;
+import PractiseProject.Pages.CheckoutInfoPage;
 import PractiseProject.Pages.HomePage;
 import PractiseProject.Pages.LoginPage;
 import PractiseProject.Utilities.*;
@@ -96,10 +97,23 @@ public class E2E {
         new HomePage(driver).addToItemTOCart(testData.getJsonData("productInfo.product1.name"))
                 .assertAddItemToCart(testData.getJsonData("productInfo.product1.name"));
     }
+
     @Test(dependsOnMethods = "AddItemToCart")
-    public void checkoutItem(){
+    public void checkoutItem() {
         new HomePage(driver).ClickOnCartIcon().assertItemDetails(
-                testData.getJsonData("productInfo.product1.name") ,testData.getJsonData("productInfo.product1.price"));
+                testData.getJsonData("productInfo.product1.name"), testData.getJsonData("productInfo.product1.price"));
+    }
+
+    @Test(dependsOnMethods = "checkoutItem")
+    public void fillInformationData() {
+        new CartPage(driver).ClickOnCheckoutButton().fillInformationForm(testData.getJsonData(
+                "information-form.first-name"), testData.getJsonData(
+                "information-form.last-name"), testData.getJsonData(
+                "information-form.postal-code")).
+                assertInformationPageData(testData.getJsonData(
+                "information-form.first-name"), testData.getJsonData(
+                "information-form.last-name"), testData.getJsonData(
+                "information-form.postal-code"));
     }
 
     @AfterClass

@@ -36,5 +36,12 @@ public class ElementAction {
         Scroll.ScrollToElement(driver,locator);
       return   FindElement(driver,locator).getText();
     }
+    //this method to get a text from input field that has the tag : value
+    public static String GetValueFromInputField(WebDriver driver , By locator){
+        LogsUtilities.info("Getting the text of the element:" ,  locator.toString() , "text" , FindElement(driver,locator).getDomAttribute("Value"));
+        Waits.WaitForElementVisibility(driver , locator);
+        Scroll.ScrollToElement(driver,locator);
+        return FindElement(driver,locator).getDomAttribute("Value");
+    }
 
 }
