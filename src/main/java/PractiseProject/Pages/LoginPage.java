@@ -62,10 +62,10 @@ public class LoginPage {
 
     //we will  assert that if the new url of homepage is displayed that it is successful , otherwise check error msg
     //Not that we need to change the scope of testng in pom.xml file from test to compile
-    public LoginPage AssertSuccessLogin() {
+    public HomePage AssertSuccessLogin() {
         Validations.AssertPageURL((driver), getPropertyValue("homeURL"));
         Validations.AssertPageTitle(driver,getPropertyValue("homePageTitle"));
-        return new LoginPage(driver);
+        return new HomePage(driver);
 
     }
 

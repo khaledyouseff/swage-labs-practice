@@ -40,10 +40,11 @@ public class CheckoutInfoPage {
 
     //validation
     @Step("assert data into the fields of checkout page")
-    public void assertInformationPageData(String firstName, String lastName, String postalCode) {
+    public CheckoutInfoPage assertInformationPageData(String firstName, String lastName, String postalCode) {
         CustomSoftAssertion.softAssertion.assertEquals(ElementAction.GetValueFromInputField(driver,this.firstName),firstName);
         CustomSoftAssertion.softAssertion.assertEquals(ElementAction.GetValueFromInputField(driver,this.lastName),lastName);
         CustomSoftAssertion.softAssertion.assertEquals(ElementAction.GetValueFromInputField(driver,this.firstName),firstName);
+        return new CheckoutInfoPage(driver);
     }
 
 

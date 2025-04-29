@@ -53,8 +53,6 @@ public class E2E {
         browserName = PropertiesUtilities.getPropertyValue("browserType");
         driver = DriverManager.CreateDriver(browserName);
         new LoginPage(driver).GoToLoginPage();
-
-
     }
 
     //Tests
