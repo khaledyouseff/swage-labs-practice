@@ -1,9 +1,6 @@
 import PractiseProject.Drivers.DriverManager;
 import PractiseProject.Listeners.TestNGListeners;
-import PractiseProject.Pages.CartPage;
-import PractiseProject.Pages.CheckoutInfoPage;
-import PractiseProject.Pages.HomePage;
-import PractiseProject.Pages.LoginPage;
+import PractiseProject.Pages.*;
 import PractiseProject.Utilities.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
@@ -115,6 +112,13 @@ public class E2E {
                 "information-form.last-name"), testData.getJsonData(
                 "information-form.postal-code"));
     }
+    @Test(dependsOnMethods = "fillInformationData")
+    public void finishPurchasing(){
+        new CheckoutInfoPage(driver).clickContinueButton()
+                .clickFinishButton().
+                assertConfirmationMessage(testData.getJsonData("confirmation-message.message"));
+    }
+
 
     @AfterClass
     public void TearDown() {

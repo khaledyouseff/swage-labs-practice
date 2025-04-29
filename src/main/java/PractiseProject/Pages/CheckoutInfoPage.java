@@ -33,9 +33,9 @@ public class CheckoutInfoPage {
     }
 
     @Step("Click continue button")
-    public CheckoutInfoPage clickContinueButton() {
+    public OverViewPage clickContinueButton() {
         ElementAction.ClickElement(driver, continueButton);
-        return this;
+        return new OverViewPage(driver);
     }
 
     //validation

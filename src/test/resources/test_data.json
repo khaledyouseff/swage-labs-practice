@@ -13,9 +13,12 @@
       "price": "$9.99"
     }
   },
-"information-form":{
-  "first-name": "khaled",
-  "last-name": "yousef",
-  "postal-code": "123456"
-}
+  "information-form": {
+    "first-name": "khaled",
+    "last-name": "yousef",
+    "postal-code": "123456"
+  },
+  "confirmation-message": {
+    "message": "Thank you for your order!"
+  }
 }
