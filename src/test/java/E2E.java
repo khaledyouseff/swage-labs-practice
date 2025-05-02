@@ -7,6 +7,8 @@ import org.testng.annotations.*;
 
 import java.io.IOException;
 
+import static PractiseProject.Utilities.TimeStampUtilities.GetTimeStamp;
+
 @Listeners(TestNGListeners.class) //Without this line the driver will be null as the properties will not be loaded
 public class E2E {
     //variables
@@ -15,6 +17,8 @@ public class E2E {
     String browserName;
     JsonUtilities testData;
     WebDriver driver;
+    String FIRST_NAME;
+    String LAST_NAME;
 
     //configurations
     @BeforeClass
@@ -29,6 +33,8 @@ public class E2E {
 
         //Loads a JSON file once when instantiated:
         testData = new JsonUtilities("test_data");
+        FIRST_NAME = testData.getJsonData("information-form.first-name")+GetTimeStamp();
+        LAST_NAME = testData.getJsonData("information-form.last-name")+GetTimeStamp();
     }
 
     @BeforeClass // I changed it from before method to before class as i will write more than one method for tests
@@ -101,17 +107,14 @@ public class E2E {
 
     @Test(dependsOnMethods = "checkoutItem")
     public void fillInformationData() {
-        new CartPage(driver).ClickOnCheckoutButton().fillInformationForm(testData.getJsonData(
-                "information-form.first-name"), testData.getJsonData(
-                "information-form.last-name"), testData.getJsonData(
-                "information-form.postal-code")).
-                assertInformationPageData(testData.getJsonData(
-                "information-form.first-name"), testData.getJsonData(
-                "information-form.last-name"), testData.getJsonData(
-                "information-form.postal-code"));
+        new CartPage(driver).ClickOnCheckoutButton().fillInformationForm(FIRST_NAME, LAST_NAME, testData.getJsonData(
+                        "information-form.postal-code")).
+                assertInformationPageData(FIRST_NAME, LAST_NAME, testData.getJsonData(
+                        "information-form.postal-code"));
     }
+
     @Test(dependsOnMethods = "fillInformationData")
-    public void finishPurchasing(){
+    public void finishPurchasing() {
         new CheckoutInfoPage(driver).clickContinueButton()
                 .clickFinishButton().
                 assertConfirmationMessage(testData.getJsonData("confirmation-message.message"));

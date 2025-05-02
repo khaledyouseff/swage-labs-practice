@@ -14,8 +14,8 @@
     }
   },
   "information-form": {
-    "first-name": "khaled",
-    "last-name": "yousef",
+    "first-name": "test_first_",
+    "last-name": "test_second_",
     "postal-code": "123456"
   },
   "confirmation-message": {

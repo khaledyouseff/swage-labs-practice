@@ -57,7 +57,8 @@ public class FileUtilities {
 
     public static void cleanDirectory(File file) {
         try {
-            FileUtils.cleanDirectory(file);
+            //I used .deleteQuietly instead of .deleteDirectory to avoid the warning message the says it cannot delete the logs file because it is used by another process
+            FileUtils.deleteQuietly(file);
         } catch (Exception e) {
             LogsUtilities.error(e.getMessage());
         }

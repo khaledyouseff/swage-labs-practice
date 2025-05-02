@@ -36,6 +36,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
+import static PractiseProject.Utilities.TimeStampUtilities.GetTimeStamp;
+
 public class ScreenshotsUtilities {
     public static final String SCREENSHOTS_PATH = "test-outputs" + File.separator + "screenshots";
 
@@ -64,9 +66,10 @@ public class ScreenshotsUtilities {
         }
 
         // Capture screenshot
+
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        File screenshotFile = new File(SCREENSHOTS_PATH, screenshotName + "_" + timestamp +".png");
+        //String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date()); ceatred a utils class for it
+        File screenshotFile = new File(SCREENSHOTS_PATH, screenshotName + "_" + GetTimeStamp() +".png");
 
         // Copy screenshot file
         FileUtils.copyFile(screenshot, screenshotFile);
