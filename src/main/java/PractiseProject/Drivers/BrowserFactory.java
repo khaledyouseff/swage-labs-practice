@@ -1,5 +1,7 @@
-package PractiseProject.Drivers;
+/*
 
+this code is replaced be Edge,fireFox and Chrome Factory classes and by the interface and the abstract class
+package PractiseProject.Drivers;
 import PractiseProject.Utilities.PropertiesUtilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -50,7 +52,7 @@ public class BrowserFactory {
                 if (!PropertiesUtilities.getPropertyValue("executionType").equalsIgnoreCase("Local")) {
                     edgeOptions.addArguments("--headless");
                 }
-
+// instead of this line we created an abstract class and extended it in chrome factory class
                 return new EdgeDriver(edgeOptions);
 
         }
@@ -78,3 +80,4 @@ public class BrowserFactory {
         return chromeOptions;
     }
 }
+*/

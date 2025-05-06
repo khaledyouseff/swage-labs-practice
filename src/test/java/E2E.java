@@ -12,7 +12,7 @@ import static PractiseProject.Utilities.TimeStampUtilities.GetTimeStamp;
 @Listeners(TestNGListeners.class) //Without this line the driver will be null as the properties will not be loaded
 public class E2E {
     //variables
-    // private WebDriver driver;
+
     // LoginPage loginPage;  no need for it as we used anonymous object  instead
     String browserName;
     JsonUtilities testData;
@@ -58,6 +58,7 @@ public class E2E {
          */
         browserName = PropertiesUtilities.getPropertyValue("browserType");
         driver = DriverManager.CreateDriver(browserName);
+
         new LoginPage(driver).GoToLoginPage();
     }
 
