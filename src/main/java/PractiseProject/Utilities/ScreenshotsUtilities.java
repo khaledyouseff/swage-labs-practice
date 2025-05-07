@@ -25,16 +25,14 @@ public class ScreenshotsUtilities {
 */
 package PractiseProject.Utilities;
 
-import PractiseProject.Drivers.DriverManager;
+import PractiseProject.Drivers.MyDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import java.util.Date;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 
 import static PractiseProject.Utilities.TimeStampUtilities.GetTimeStamp;
 
@@ -43,8 +41,8 @@ public class ScreenshotsUtilities {
 
     private ScreenshotsUtilities() {}
 
-    public static void takeScreenshot(String screenshotName) throws IOException {
-        WebDriver driver = DriverManager.getDriver();
+    public static void takeScreenshot(WebDriver driver ,String screenshotName) throws IOException {
+
 
         // Ensure directory exists
         File screenshotDir = new File(SCREENSHOTS_PATH);

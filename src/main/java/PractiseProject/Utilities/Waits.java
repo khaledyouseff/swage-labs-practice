@@ -10,13 +10,15 @@ import java.time.Duration;
 public class Waits {
     // I made the all static to be able to call them directly without instantiating object from the class
     //this private constructor prevents direct instantiating from the class
+    private WebDriver driver;
 
-    private Waits() {
+    public Waits(WebDriver driver) {
+        this.driver = driver;
     }
 
     //present
 
-    public static WebElement WaitForElementPresence(WebDriver driver, By locator) {
+    public  WebElement WaitForElementPresence( By locator) {
     /*we will not wait until a certain condition as
     it is not effective,but we will use lambda expression*/
         LogsUtilities.info("waiting to the element to present:", locator.toString());
@@ -27,13 +29,13 @@ public class Waits {
 
 
     //visible
-    public static WebElement WaitForElementVisibility(WebDriver driver, By locator) {
+    public  WebElement WaitForElementVisibility( By locator) {
         LogsUtilities.info("waiting to the element to be visible:", locator.toString());
 
         return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(driver1 ->
                         {
-                            WebElement element = WaitForElementPresence(driver, locator);
+                            WebElement element = WaitForElementPresence(locator);
                             return element.isDisplayed() ? element : null;
                         }
                 );
@@ -41,13 +43,13 @@ public class Waits {
 
 
     //Clickable
-    public static WebElement WaitForElementToBeClickable(WebDriver driver, By locator) {
+    public  WebElement WaitForElementToBeClickable( By locator) {
         LogsUtilities.info("waiting to the element to be clickable:", locator.toString());
 
         return new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver1 ->
 
                 {
-                    WebElement element = WaitForElementVisibility(driver, locator);
+                    WebElement element = WaitForElementVisibility( locator);
                     return element.isEnabled() ? element : null;
                 }
 

@@ -1,6 +1,6 @@
 package PractiseProjectTests;
 
-import PractiseProject.Drivers.DriverManager;
+import PractiseProject.Drivers.MyDriver;
 import PractiseProject.Listeners.TestNGListeners;
 import PractiseProject.Pages.LoginPage;
 import PractiseProject.Utilities.BrowserActions;
@@ -14,7 +14,7 @@ import org.testng.annotations.*;
 public class UserFlow {
     String browserName;
     JsonUtilities testData;
-    WebDriver driver;
+    MyDriver driver;
 
     //configurations
     @BeforeClass
@@ -27,12 +27,12 @@ public class UserFlow {
     public void Setup() {
 
         browserName = PropertiesUtilities.getPropertyValue("browserType");
-        driver = DriverManager.CreateDriver(browserName);
+        driver = new MyDriver(browserName);
         new LoginPage(driver).GoToLoginPage();
     }
     @Test
     public void SuccessfullLogin(){
-        new LoginPage(DriverManager.getDriver()).
+        new LoginPage(driver).
                 SetUserNameField(testData.getJsonData("successful-Login.username")).
                 SetPasswordField(testData.getJsonData("successful-Login.password")).
                 ClickLoginButton().AssertSuccessLogin().
@@ -53,7 +53,7 @@ public class UserFlow {
 
     @AfterClass
     public void TearDown() {
-        BrowserActions.quitBrowser(DriverManager.getDriver());
+       driver.browser().quitBrowser();
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
         // CustomSoftAssertion.customAssertAll();
     }

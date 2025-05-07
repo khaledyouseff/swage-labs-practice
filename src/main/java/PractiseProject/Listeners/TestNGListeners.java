@@ -1,6 +1,8 @@
 package PractiseProject.Listeners;
 
+import PractiseProject.Drivers.MyDriver;
 import PractiseProject.Utilities.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.*;
 
 import java.io.File;
@@ -31,7 +33,7 @@ public class TestNGListeners implements IExecutionListener, ITestListener, IInvo
 
     @Override
     public void afterInvocation(IInvokedMethod method, ITestResult testResultt) {
-
+        WebDriver driver =MyDriver.getInstance();
         // to attach only after the test method not the other methods in test class
        if(method.isTestMethod())
        {
@@ -48,7 +50,7 @@ public class TestNGListeners implements IExecutionListener, ITestListener, IInvo
            switch (testResultt.getStatus()){
                case ITestResult.SUCCESS -> {
                    try {
-                       ScreenshotsUtilities.takeScreenshot("Passed-" + testResultt.getName());
+                       ScreenshotsUtilities.takeScreenshot(driver,"Passed-" + testResultt.getName());
                    } catch (IOException e) {
                        throw new RuntimeException(e);
                    }
@@ -56,7 +58,7 @@ public class TestNGListeners implements IExecutionListener, ITestListener, IInvo
                }
                case ITestResult.FAILURE -> {
                    try {
-                       ScreenshotsUtilities.takeScreenshot("Failed-" + testResultt.getName());
+                       ScreenshotsUtilities.takeScreenshot(driver,"Failed-" + testResultt.getName());
                    } catch (IOException e) {
                        throw new RuntimeException(e);
                    }
@@ -65,7 +67,7 @@ public class TestNGListeners implements IExecutionListener, ITestListener, IInvo
                }
                case ITestResult.SKIP -> {
                    try {
-                       ScreenshotsUtilities.takeScreenshot("Skipped-" + testResultt.getName());
+                       ScreenshotsUtilities.takeScreenshot(driver,"Skipped-" + testResultt.getName());
                    } catch (IOException e) {
                        throw new RuntimeException(e);
                    }

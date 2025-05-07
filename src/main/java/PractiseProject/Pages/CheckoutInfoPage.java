@@ -1,5 +1,6 @@
 package PractiseProject.Pages;
 
+import PractiseProject.Drivers.MyDriver;
 import PractiseProject.Utilities.CustomSoftAssertion;
 import PractiseProject.Utilities.ElementAction;
 import PractiseProject.Utilities.Validations;
@@ -10,10 +11,10 @@ import org.openqa.selenium.WebDriver;
 public class CheckoutInfoPage {
 
     //variables
-    WebDriver driver;
+    MyDriver driver;
 
     //constructor
-    public CheckoutInfoPage(WebDriver driver) {
+    public CheckoutInfoPage(MyDriver driver) {
         this.driver = driver;
     }
 
@@ -26,24 +27,24 @@ public class CheckoutInfoPage {
     //actions
     @Step("Filling info form data")
     public CheckoutInfoPage fillInformationForm(String firstName, String lastName, String postalCode) {
-        ElementAction.SendData(driver, this.firstName, firstName);
-        ElementAction.SendData(driver, this.lastName, lastName);
-        ElementAction.SendData(driver, this.postalCode, postalCode);
+        driver.element().SendData(this.firstName, firstName);
+        driver.element().SendData( this.lastName, lastName);
+        driver.element().SendData( this.postalCode, postalCode);
         return this;
     }
 
     @Step("Click continue button")
     public OverViewPage clickContinueButton() {
-        ElementAction.ClickElement(driver, continueButton);
+        driver.element().ClickElement( continueButton);
         return new OverViewPage(driver);
     }
 
     //validation
     @Step("assert data into the fields of checkout page")
     public CheckoutInfoPage assertInformationPageData(String firstName, String lastName, String postalCode) {
-        CustomSoftAssertion.softAssertion.assertEquals(ElementAction.GetValueFromInputField(driver,this.firstName),firstName);
-        CustomSoftAssertion.softAssertion.assertEquals(ElementAction.GetValueFromInputField(driver,this.lastName),lastName);
-        CustomSoftAssertion.softAssertion.assertEquals(ElementAction.GetValueFromInputField(driver,this.firstName),firstName);
+        CustomSoftAssertion.softAssertion.assertEquals(driver.element().GetValueFromInputField(this.firstName),firstName);
+        CustomSoftAssertion.softAssertion.assertEquals(driver.element().GetValueFromInputField(this.lastName),lastName);
+        CustomSoftAssertion.softAssertion.assertEquals(driver.element().GetValueFromInputField(this.firstName),firstName);
         return new CheckoutInfoPage(driver);
     }
 

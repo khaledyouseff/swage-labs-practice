@@ -1,0 +1,178 @@
+[DEBUG] - [07-05-2025 12:42:01] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml"
+[INFO] - [07-05-2025 12:42:01] [main] [PractiseProject.Listeners.TestNGListeners] - Test Execution Started
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\allure.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\environment.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\log4j2.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\web.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - All properties successfully loaded and added to system properties.
+[INFO] - [07-05-2025 12:42:02] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: browserType = edge
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Using WebDriverManager 5.9.2
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.cache.ResolutionCache] - Resolution chrome=135 in cache (valid until 13:34:44 07/05/2025 EEST)
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.cache.ResolutionCache] - Resolution chrome135=135.0.7049.114 in cache (valid until 12:34:44 08/05/2025 EEST)
+[INFO] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Using chromedriver 135.0.7049.114 (resolved driver for Chrome 135)
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Driver chromedriver 135.0.7049.114 found in cache
+[INFO] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Exporting webdriver.chrome.driver as C:\Users\khaled.youssef\.cache\selenium\chromedriver\win64\135.0.7049.114\chromedriver.exe
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: executionType = Local
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: executionType = Local
+[INFO] - [07-05-2025 12:42:06] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: baseURL = https://www.saucedemo.com
+[INFO] - [07-05-2025 12:42:08] [main] [PractiseProject.Utilities.BrowserActions] - Navigated to URL:https://www.saucedemo.com
+[DEBUG] - [07-05-2025 12:42:09] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['successful-Login']['username']
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'successful-Login.username' in the json file: 'test_data' has value: 'standard_user'
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: user-name
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: user-name
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: user-name
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: user-name
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: user-name
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - data entered is :standard_user in field:By.id: user-name
+[DEBUG] - [07-05-2025 12:42:09] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['successful-Login']['password']
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'successful-Login.password' in the json file: 'test_data' has value: 'secret_sauce'
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: password
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: password
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: password
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: password
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: password
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - data entered is :secret_sauce in field:By.id: password
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be clickable:By.id: login-button
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: login-button
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: login-button
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: login-button
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: login-button
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: login-button
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - click on element:By.id: login-button
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: homeURL = https://www.saucedemo.com/inventory.html
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.BrowserActions] - Current URL:https://www.saucedemo.com/inventory.html
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: homePageTitle = Swag Labs
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.BrowserActions] - Current page title:Swag Labs
+[DEBUG] - [07-05-2025 12:42:09] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['productInfo']['product1']['name']
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'productInfo.product1.name' in the json file: 'test_data' has value: 'Sauce Labs Backpack'
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Pages.HomePage] - Adding Sauce Labs Backpackto cart
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Pages.HomePage] - Locator for adding to cart: [unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be clickable:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the element[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - click on element:[unknown locator]
+[DEBUG] - [07-05-2025 12:42:09] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['productInfo']['product1']['name']
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'productInfo.product1.name' in the json file: 'test_data' has value: 'Sauce Labs Backpack'
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Getting the text of the element:[unknown locator]textRemove
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the element[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:[unknown locator]
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Pages.HomePage] - Actual value is :Remove
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be clickable:By.id: shopping_cart_container
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: shopping_cart_container
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: shopping_cart_container
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: shopping_cart_container
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: shopping_cart_container
+[INFO] - [07-05-2025 12:42:09] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: shopping_cart_container
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - click on element:By.id: shopping_cart_container
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['productInfo']['product1']['name']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'productInfo.product1.name' in the json file: 'test_data' has value: 'Sauce Labs Backpack'
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['productInfo']['product1']['price']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'productInfo.product1.price' in the json file: 'test_data' has value: '$29.99'
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: item_4_title_link
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Getting the text of the element:By.id: item_4_title_linktextSauce Labs Backpack
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: item_4_title_link
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: item_4_title_link
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: item_4_title_link
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: item_4_title_link
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: item_4_title_link
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.cssSelector: .inventory_item_price
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Getting the text of the element:By.cssSelector: .inventory_item_pricetext$29.99
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.cssSelector: .inventory_item_price
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.cssSelector: .inventory_item_price
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.cssSelector: .inventory_item_price
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.cssSelector: .inventory_item_price
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.cssSelector: .inventory_item_price
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be clickable:By.id: checkout
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: checkout
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: checkout
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: checkout
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: checkout
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: checkout
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - click on element:By.id: checkout
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['information-form']['first-name']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'information-form.first-name' in the json file: 'test_data' has value: 'test_first_'
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['information-form']['last-name']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'information-form.last-name' in the json file: 'test_data' has value: 'test_second_'
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['information-form']['postal-code']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'information-form.postal-code' in the json file: 'test_data' has value: '123456'
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - data entered is :test_first_ in field:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - data entered is :test_second_ in field:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: postal-code
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: postal-code
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: postal-code
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: postal-code
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: postal-code
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - data entered is :123456 in field:By.id: postal-code
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['information-form']['first-name']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'information-form.first-name' in the json file: 'test_data' has value: 'test_first_'
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['information-form']['last-name']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'information-form.last-name' in the json file: 'test_data' has value: 'test_second_'
+[DEBUG] - [07-05-2025 12:42:10] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['information-form']['postal-code']
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'information-form.postal-code' in the json file: 'test_data' has value: '123456'
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Getting the text of the element:By.id: first-nametexttest_first_
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Getting the text of the element:By.id: last-nametexttest_second_
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: last-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Getting the text of the element:By.id: first-nametexttest_first_
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: first-name
+[INFO] - [07-05-2025 12:42:10] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: first-name
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be clickable:By.id: continue
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: continue
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: continue
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: continue
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: continue
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: continue
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - click on element:By.id: continue
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be clickable:By.id: finish
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.id: finish
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.id: finish
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: finish
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.id: finish
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.id: finish
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - click on element:By.id: finish
+[DEBUG] - [07-05-2025 12:42:11] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['confirmation-message']['message']
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.JsonUtilities] - Json path: 'confirmation-message.message' in the json file: 'test_data' has value: 'Thank you for your order!'
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.cssSelector: .complete-header
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Getting the text of the element:By.cssSelector: .complete-headertextThank you for your order!
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to be visible:By.cssSelector: .complete-header
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.Waits] - waiting to the element to present:By.cssSelector: .complete-header
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.cssSelector: .complete-header
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Scrolling to the elementBy.cssSelector: .complete-header
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Utilities.ElementAction] - Finding element:By.cssSelector: .complete-header
+[INFO] - [07-05-2025 12:42:11] [main] [PractiseProject.Listeners.TestNGListeners] - Test caseSuccessfullLoginPassed
+[INFO] - [07-05-2025 12:42:12] [main] [PractiseProject.Utilities.BrowserActions] - Quiting the browser

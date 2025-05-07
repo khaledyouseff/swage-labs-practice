@@ -1,20 +1,20 @@
 package PractiseProject.Drivers;
 
+import PractiseProject.Utilities.BrowserActions;
+import PractiseProject.Utilities.ElementAction;
 import PractiseProject.Utilities.LogsUtilities;
-import io.qameta.allure.Step;
-import net.bytebuddy.implementation.bind.annotation.Super;
+import PractiseProject.Utilities.Validations;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.logging.Logs;
 
 import static org.testng.Assert.fail;
 
-public class DriverManager {
+public class MyDriver {
     /* in case i wanted to execute parallel execution so only one initialized instance
     is thrown so i can open more than one session
     with its instance(Ensures Each Thread Has Its Own WebDriver Instance)*/
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
-    public DriverManager(String BrowserName) {
+    public MyDriver(String BrowserName) {
 
         WebDriver driver = getDriver(BrowserName).StartDriver();
         setDriver(driver);
@@ -55,7 +55,7 @@ public class DriverManager {
         driverThreadLocal.set(driver);
     }
 
-    public WebDriver get() {
+    public WebDriver getMyDriver() {
         if (driverThreadLocal.get() == null) {
             LogsUtilities.error("Driver is null");
             fail("Driver is null");
@@ -64,4 +64,18 @@ public class DriverManager {
         return driverThreadLocal.get();
     }
 
+    public BrowserActions browser() {
+        return new BrowserActions(getMyDriver());
+    }
+
+    public ElementAction element() {
+        return new ElementAction(getMyDriver());
+    }
+
+    public Validations validate() {
+        return new Validations(getMyDriver());
+    }
+    public static WebDriver getInstance(){
+        return driverThreadLocal.get();
+    }
 }

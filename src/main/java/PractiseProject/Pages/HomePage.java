@@ -1,5 +1,6 @@
 package PractiseProject.Pages;
 
+import PractiseProject.Drivers.MyDriver;
 import PractiseProject.Utilities.*;
 import com.google.common.base.FinalizablePhantomReference;
 import io.qameta.allure.Step;
@@ -11,10 +12,10 @@ import java.lang.reflect.Field;
 
 public class HomePage {
     //variables
-    private WebDriver driver;
+    private MyDriver driver;
 
     //constructor
-    public HomePage(WebDriver driver) {
+    public HomePage(MyDriver driver) {
         this.driver = driver;
     }
     //locators
@@ -23,7 +24,7 @@ public class HomePage {
     //actions
     @Step("navigate to homepage")
     public HomePage navigateToHomePage(){
-        BrowserActions.GoToBrowser(driver , PropertiesUtilities.getPropertyValue("homeURL"));
+        driver.browser().GoToBrowser(PropertiesUtilities.getPropertyValue("homeURL"));
         return this;
     }
     @Step("Add an item to the cart")
@@ -32,13 +33,13 @@ public class HomePage {
         By addToCart = RelativeLocator.with(By.tagName("button")).below(By.xpath("//div[.='"+ productName +"']"));
 
         LogsUtilities.info("Locator for adding to cart: " + addToCart);
-        ElementAction.FindElement(driver , addToCart);
-        ElementAction.ClickElement(driver,addToCart);
+        driver.element().FindElement( addToCart);
+        driver.element(). ClickElement(addToCart);
         return this;
     }
     @Step("Click  cart icon")
     public CartPage ClickOnCartIcon(){
-        ElementAction.ClickElement(driver,CartIcon);
+        driver.element().ClickElement(CartIcon);
         return new CartPage(driver);
     }
     //validations
@@ -46,9 +47,9 @@ public class HomePage {
     public HomePage assertAddItemToCart(String productName){
         By addToCart = RelativeLocator.with(By.tagName("button")).below(By.xpath("//div[.='"+ productName +"']"));
 
-        String actualValue= ElementAction.GetText(driver,addToCart);
+        String actualValue= driver.element().GetText(addToCart);
         LogsUtilities.info("Actual value is :" + actualValue);
-        Validations.AssertEquals(actualValue, "Remove","Product not added to cart");
+        driver.validate().AssertEquals(actualValue, "Remove","Product not added to cart");
 
         return new HomePage(driver);
     }

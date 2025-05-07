@@ -1,5 +1,6 @@
 package PractiseProject.Pages;
 
+import PractiseProject.Drivers.MyDriver;
 import PractiseProject.Utilities.CustomSoftAssertion;
 import PractiseProject.Utilities.ElementAction;
 import io.qameta.allure.Step;
@@ -8,10 +9,10 @@ import org.openqa.selenium.WebDriver;
 
 public class CartPage {
     // variables
-    WebDriver driver;
+    MyDriver driver;
 
     //constructor
-    public CartPage(WebDriver driver) {
+    public CartPage(MyDriver driver) {
         this.driver = driver;
     }
 
@@ -24,15 +25,15 @@ public class CartPage {
     //actions
     @Step("Get item name")
     public String getItemName() {
-        return ElementAction.GetText(driver, itemTitle);
+        return driver.element().GetText( itemTitle);
     }
     @Step("Get item price")
     public String getItemPrice() {
-        return ElementAction.GetText(driver, itemPrice);
+        return driver.element().GetText( itemPrice);
     }
     @Step("Click checkout button")
     public CheckoutInfoPage ClickOnCheckoutButton() {
-        ElementAction.ClickElement(driver, checkoutButton);
+        driver.element().ClickElement( checkoutButton);
         return new CheckoutInfoPage(driver);
     }
 

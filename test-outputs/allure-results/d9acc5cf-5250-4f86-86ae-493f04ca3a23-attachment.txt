@@ -1,0 +1,10 @@
+[DEBUG] - [07-05-2025 12:42:01] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml"
+[INFO] - [07-05-2025 12:42:01] [main] [PractiseProject.Listeners.TestNGListeners] - Test Execution Started
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\allure.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\environment.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\log4j2.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\web.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - All properties successfully loaded and added to system properties.
+[INFO] - [07-05-2025 12:42:02] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+

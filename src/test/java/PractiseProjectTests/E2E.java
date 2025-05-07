@@ -1,4 +1,6 @@
-import PractiseProject.Drivers.DriverManager;
+package PractiseProjectTests;
+
+import PractiseProject.Drivers.MyDriver;
 import PractiseProject.Listeners.TestNGListeners;
 import PractiseProject.Pages.*;
 import PractiseProject.Utilities.*;
@@ -16,7 +18,7 @@ public class E2E {
     // LoginPage loginPage;  no need for it as we used anonymous object  instead
     String browserName;
     JsonUtilities testData;
-    WebDriver driver;
+    MyDriver driver;
     String FIRST_NAME;
     String LAST_NAME;
 
@@ -33,8 +35,8 @@ public class E2E {
 
         //Loads a JSON file once when instantiated:
         testData = new JsonUtilities("test_data");
-        FIRST_NAME = testData.getJsonData("information-form.first-name")+GetTimeStamp();
-        LAST_NAME = testData.getJsonData("information-form.last-name")+GetTimeStamp();
+        FIRST_NAME = testData.getJsonData("information-form.first-name") + GetTimeStamp();
+        LAST_NAME = testData.getJsonData("information-form.last-name") + GetTimeStamp();
     }
 
     @BeforeClass // I changed it from before method to before class as i will write more than one method for tests
@@ -57,7 +59,10 @@ public class E2E {
 
          */
         browserName = PropertiesUtilities.getPropertyValue("browserType");
-        driver = DriverManager.CreateDriver(browserName);
+        //  driver = DriverManager.CreateDriver(browserName);
+        MyDriver myDriver = new MyDriver(browserName);
+        driver= new MyDriver(browserName);
+
 
         new LoginPage(driver).GoToLoginPage();
     }
@@ -73,7 +78,7 @@ public class E2E {
         loginPage.AssertSuccessLogin();
         */
 
-        new LoginPage(DriverManager.getDriver()).
+        new LoginPage(driver).
                 SetUserNameField(testData.getJsonData("successful-Login.username")).
                 SetPasswordField(testData.getJsonData("successful-Login.password")).
                 ClickLoginButton().AssertSuccessLogin();
@@ -124,7 +129,7 @@ public class E2E {
 
     @AfterClass
     public void TearDown() {
-        BrowserActions.quitBrowser(DriverManager.getDriver());
+        driver.browser().quitBrowser();
         //we should add this here to asset all the soft validations if we used it in the test class (video #7)
         // CustomSoftAssertion.customAssertAll();
     }

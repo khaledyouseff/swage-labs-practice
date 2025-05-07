@@ -1,0 +1,21 @@
+[DEBUG] - [07-05-2025 12:42:01] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml"
+[INFO] - [07-05-2025 12:42:01] [main] [PractiseProject.Listeners.TestNGListeners] - Test Execution Started
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\allure.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\environment.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\log4j2.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Loaded properties from: D:\automation projects\Practice Basics\src\main\resources\web.properties
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - All properties successfully loaded and added to system properties.
+[INFO] - [07-05-2025 12:42:02] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\khaled.youssef\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: browserType = edge
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Using WebDriverManager 5.9.2
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.cache.ResolutionCache] - Resolution chrome=135 in cache (valid until 13:34:44 07/05/2025 EEST)
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.cache.ResolutionCache] - Resolution chrome135=135.0.7049.114 in cache (valid until 12:34:44 08/05/2025 EEST)
+[INFO] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Using chromedriver 135.0.7049.114 (resolved driver for Chrome 135)
+[DEBUG] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Driver chromedriver 135.0.7049.114 found in cache
+[INFO] - [07-05-2025 12:42:02] [main] [io.github.bonigarcia.wdm.WebDriverManager] - Exporting webdriver.chrome.driver as C:\Users\khaled.youssef\.cache\selenium\chromedriver\win64\135.0.7049.114\chromedriver.exe
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: executionType = Local
+[INFO] - [07-05-2025 12:42:02] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: executionType = Local
+[INFO] - [07-05-2025 12:42:06] [main] [PractiseProject.Utilities.PropertiesUtilities] - Retrieved property: baseURL = https://www.saucedemo.com
+[INFO] - [07-05-2025 12:42:08] [main] [PractiseProject.Utilities.BrowserActions] - Navigated to URL:https://www.saucedemo.com
